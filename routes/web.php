@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//ログイン画面のルート・表示
+Route::get('/', [AuthController::class, 'showLogin'])->name('showLogin');
+//ログイン処理
+Route::post('login', [AuthController::class, 'login'])->name('login');
